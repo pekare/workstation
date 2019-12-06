@@ -14,10 +14,13 @@ choco install mremoteng -y
 choco install winscp -y
 choco install vagrant -y
 choco install docker-desktop -y
+```
 
 ### Install admin-tools
+```
 choco install rufus -y
 choco install rsat -params '"/AD"' -y
 choco install angryip -y
 choco install wireshark -y
 choco install nmap -y
+```
