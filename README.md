@@ -39,6 +39,7 @@ choco install rsat -params '"/AD"' -y
 choco install angryip -y
 choco install wireshark -y
 choco install nmap -y
+choco install ldapadmin -y
 ```
 
 ### Install docker in WSL
