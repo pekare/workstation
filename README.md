@@ -5,6 +5,11 @@
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 
+## Enable wsl
+```
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+```
+
 ### Install dev-tools
 ```
 choco install git.install -y
