@@ -54,3 +54,10 @@ sudo usermod -aG docker $USER
 
 ### Disable TLS for docker desktop daemon and configure docker-cli access to docker desktop
 echo "export DOCKER_HOST=tcp://localhost:2375" >> ~/.bashrc && source ~/.bashrc
+
+### Fix mount issue with WSL and relogg
+sudo cat /etc/wsl.conf<<EOF
+[automount]
+root = /
+options = "metadata"
+EOF
