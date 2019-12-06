@@ -40,3 +40,17 @@ choco install angryip -y
 choco install wireshark -y
 choco install nmap -y
 ```
+
+### Install docker in WSL
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get update -y
+sudo apt-get install -y docker-ce
+sudo usermod -aG docker $USER
+
+### Disable TLS for docker desktop daemon and configure docker-cli access to docker desktop
+echo "export DOCKER_HOST=tcp://localhost:2375" >> ~/.bashrc && source ~/.bashrc
