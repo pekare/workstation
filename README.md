@@ -1,13 +1,18 @@
 # workstation
 
-## Enable hyper-v and reboot
+### Enable hyper-v and reboot
 ```
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 
-## Enable wsl
+### Enable wsl
 ```
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+```
+
+### Install chocolatey
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
 
 ### Install dev-tools
