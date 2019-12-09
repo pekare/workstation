@@ -65,6 +65,13 @@ echo "export DOCKER_HOST=tcp://localhost:2375" >> ~/.bashrc && source ~/.bashrc
 sudo cat /etc/wsl.conf<<EOF
 [automount]
 root = /
-options = "metadata"
+options = "metadata,umask=22,fmask=11"
+EOF
+```
+```
+cat ~/.profile<<EOF
+if [[ "$(umask)" = "0000" ]]; then
+  umask 0022
+fi
 EOF
 ```
