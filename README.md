@@ -62,14 +62,15 @@ echo "export DOCKER_HOST=tcp://localhost:2375" >> ~/.bashrc && source ~/.bashrc
 
 ### Fix mount issue with WSL and relogg
 ```
-sudo cat /etc/wsl.conf<<EOF
+sudo tee /etc/wsl.conf<<EOF
 [automount]
 root = /
 options = "metadata,umask=22,fmask=11"
 EOF
 ```
 ```
-cat ~/.profile<<EOF
+sudo tee /etc/profile.d/file-perm-wsl.sh<<EOF
+#!/bin/sh
 if [[ "$(umask)" = "0000" ]]; then
   umask 0022
 fi
