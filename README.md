@@ -71,16 +71,17 @@ EOF
 ```
 sudo tee /etc/profile.d/file-perm-wsl.sh<<EOF
 #!/bin/sh
-if [[ "$(umask)" = "0000" ]]; then
+if [ "$(umask)" = "0000" ]; then
   umask 0022
 fi
 EOF
 ```
 ### Fix permissions in Remote-WSL
 ```
+mkdir ~/.vscode-server
 sudo tee ~/.vscode-server/server-env-setup<<EOF
 #!/bin/sh
-if [[ "$(umask)" = "0000" ]]; then
+if [ "$(umask)" = "0000" ]; then
   umask 0022
 fi
 EOF
