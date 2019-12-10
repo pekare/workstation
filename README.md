@@ -92,7 +92,7 @@ Unpack at /c/Users/${USER}/Documents/ssh/weasel-pageant/.
 Add weasel-pageant to bashrc.
 ```
 cat <<'EOF'>> ~/.bashrc
-eval $(/c/Users/${USER}/Documents/ssh/weasel-pageant/weasel-pageant -r)
+eval $(/c/Users/${USER}/Documents/ssh/weasel-pageant/weasel-pageant -r) >/dev/null
 EOF
 ```
 
