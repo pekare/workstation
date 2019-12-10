@@ -71,7 +71,7 @@ EOF
 ```
 sudo tee /etc/profile.d/file-perm-wsl.sh<<EOF
 #!/bin/sh
-if [ "$(umask)" = "0000" ]; then
+if [[ "$(umask)" = "0000" ]]; then
   umask 0022
 fi
 EOF
@@ -81,8 +81,8 @@ EOF
 mkdir ~/.vscode-server
 tee ~/.vscode-server/server-env-setup<<EOF
 #!/bin/sh
-if [ "$(umask)" = "0000" ]; then
-  umask 0022
-fi
+echo "Current umask: $(umask)"
+umask 0022
+echo "Changed umask to: 0022"
 EOF
 ```
