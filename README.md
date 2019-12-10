@@ -79,7 +79,7 @@ EOF
 ### Fix permissions in Remote-WSL
 ```
 mkdir ~/.vscode-server
-sudo tee ~/.vscode-server/server-env-setup<<EOF
+tee ~/.vscode-server/server-env-setup<<EOF
 #!/bin/sh
 if [ "$(umask)" = "0000" ]; then
   umask 0022
