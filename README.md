@@ -87,9 +87,9 @@ echo "Changed umask to: 0022"
 EOF
 ```
 ### Add weasel-pageant
-Download https://github.com/vuori/weasel-pageant/releases/latest
-Unpack at /c/Users/${USER}/Documents/ssh/weasel-pageant/
-Add weasel-pageant to bashrc
+Download https://github.com/vuori/weasel-pageant/releases/latest.
+Unpack at /c/Users/${USER}/Documents/ssh/weasel-pageant/.
+Add weasel-pageant to bashrc.
 ```
 cat <<'EOF'>> ~/.bashrc
 eval $(/c/Users/${USER}/Documents/ssh/weasel-pageant/weasel-pageant -r)
