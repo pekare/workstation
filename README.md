@@ -85,7 +85,12 @@ echo "Current umask: $(umask)"
 umask 0022
 echo "Changed umask to: 0022"
 EOF
+```    
+Fix issue in remote-WSL for renaming files. Add to vscode settings.json.
 ```
+"remote.WSL.fileWatcher.polling": true
+```
+
 ### Add weasel-pageant
 Download https://github.com/vuori/weasel-pageant/releases/latest.
 Unpack at /c/Users/${USER}/Documents/ssh/weasel-pageant/.
