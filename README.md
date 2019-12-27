@@ -31,16 +31,28 @@ choco install -y git.install vscode putty-cac mremoteng winscp vagrant docker-de
 choco install -y rufus rsat wireshark nmap ldapadmin
 ```
 
+### Upgrade debian to buster
+```
+sudo sed -i 's/stretch/buster/g' /etc/apt/sources.list
+sudo apt update
+sudo apt dist-upgrade -y
+```
+
 ### Install docker in WSL
 ```
+sudo apt install -y \
+     apt-transport-https \
+     ca-certificates \
+     curl \
+     gnupg2 \
+     software-properties-common
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/debian \
    $(lsb_release -cs) \
    stable"
-sudo apt-get update -y
-sudo apt-get install -y docker-ce
+sudo apt update
+sudo apt install -y docker-ce
 sudo usermod -aG docker $USER
 ```
 
