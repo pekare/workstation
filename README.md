@@ -10,10 +10,10 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
-### Install ubuntu wsl (user)
+### Install debian wsl (user)
 ```
-Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile Ubuntu.appx -UseBasicParsing
-Add-AppxPackage .\Ubuntu.appx
+Invoke-WebRequest -Uri https://aka.ms/wsl-debian-gnulinux -OutFile debian.appx -UseBasicParsing
+Add-AppxPackage .\debian.appx
 ```
 
 ### Install chocolatey (admin)
@@ -23,31 +23,20 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 
 ### Install dev-tools (admin)
 ```
-choco install git.install -y
-choco install vscode -y
-choco install putty-cac -y
-choco install mremoteng -y
-choco install winscp -y
-choco install vagrant -y
-choco install docker-desktop -y
+choco install -y git.install vscode putty-cac mremoteng winscp vagrant docker-desktop
 ```
 
 ### Install admin-tools (admin)
 ```
-choco install rufus -y
-choco install rsat -params '"/AD"' -y
-choco install angryip -y
-choco install wireshark -y
-choco install nmap -y
-choco install ldapadmin -y
+choco install -y rufus rsat wireshark nmap ldapadmin
 ```
 
 ### Install docker in WSL
 ```
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo apt-key fingerprint 0EBFCD88
 sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   "deb [arch=amd64] https://download.docker.com/linux/debian \
    $(lsb_release -cs) \
    stable"
 sudo apt-get update -y
