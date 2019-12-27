@@ -1,4 +1,4 @@
-# workstation
+# VScode with docker
 
 ### Enable hyper-v and reboot (admin)
 ```
