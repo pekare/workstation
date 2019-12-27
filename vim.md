@@ -20,3 +20,7 @@ if [[ "$(umask)" = "0000" ]]; then
 fi
 EOF
 ```
+
+# Install VIM
+sudo apt update && sudo apt upgrade -y
+sudo apt install vim -y
