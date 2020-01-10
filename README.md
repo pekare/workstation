@@ -18,7 +18,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 
 ### Install dev-tools (admin)
 ```
-choco install -y git.install vscode putty-cac mremoteng winscp vagrant
+choco install -y git.install vscode putty-cac mremoteng winscp vagrant winpcap wireshark
 choco install -y virtualbox --version=6.0.14
 ```
 
