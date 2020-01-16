@@ -52,11 +52,6 @@ sudo apt install -y docker-ce
 sudo usermod -aG docker $USER
 ```
 
-### Disable TLS for docker desktop daemon and configure docker-cli access to docker desktop
-```
-echo "export DOCKER_HOST=tcp://localhost:2375" >> ~/.bashrc && source ~/.bashrc
-```
-
 ### Fix mount issue with WSL and relogg
 ```
 sudo tee /etc/wsl.conf<<EOF
@@ -96,6 +91,18 @@ Add weasel-pageant to bashrc.
 cat <<'EOF'>> ~/.bashrc
 eval $(/c/Users/${USER}/Documents/ssh/weasel-pageant/weasel-pageant -r) >/dev/null
 EOF
+```
+
+### Install vagrant and configure to access windows virtualbox
+
+export PATH="$PATH:/c/Program Files/Oracle/VirtualBox"
+
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+
+
+### Disable TLS for docker desktop daemon and configure docker-cli access to docker VM
+```
+echo "export DOCKER_HOST=tcp://localhost:2375" >> ~/.bashrc && source ~/.bashrc
 ```
 
 
