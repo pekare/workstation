@@ -1,8 +1,9 @@
 # VScode with docker
 
-### Enable wsl (admin)
+### Enable wsl and hyper-v (admin)
 ```
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 
 ### Install debian wsl (user)
@@ -18,8 +19,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 
 ### Install dev-tools (admin)
 ```
-choco install -y git.install vscode putty-cac mremoteng winscp vagrant winpcap wireshark
-choco install -y virtualbox --version=6.0.14
+choco install -y git.install vscode putty-cac winscp vagrant winpcap docker-desktop
 ```
 
 ### Install admin-tools (admin)
@@ -32,24 +32,7 @@ choco install -y rufus rsat wireshark nmap ldapadmin
 sudo sed -i 's/stretch/buster/g' /etc/apt/sources.list
 sudo apt update
 sudo apt dist-upgrade -y
-```
-
-### Install docker in WSL
-```
-sudo apt install -y \
-     apt-transport-https \
-     ca-certificates \
-     curl \
-     gnupg2 \
-     software-properties-common
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/debian \
-   $(lsb_release -cs) \
-   stable"
-sudo apt update
-sudo apt install -y docker-ce
-sudo usermod -aG docker $USER
+sudo apt autoremove
 ```
 
 ### Fix mount issue with WSL and relogg
@@ -92,13 +75,23 @@ cat <<'EOF'>> ~/.bashrc
 eval $(/c/Users/${USER}/Documents/ssh/weasel-pageant/weasel-pageant -r) >/dev/null
 EOF
 ```
-
-### Install vagrant and configure to access windows virtualbox
-
-export PATH="$PATH:/c/Program Files/Oracle/VirtualBox"
-
-export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
-
+### Install docker in WSL
+```
+sudo apt install -y \
+     apt-transport-https \
+     ca-certificates \
+     curl \
+     gnupg2 \
+     software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/debian \
+   $(lsb_release -cs) \
+   stable"
+sudo apt update
+sudo apt install -y docker-ce
+sudo usermod -aG docker $USER
+```
 
 ### Disable TLS for docker desktop daemon and configure docker-cli access to docker VM
 ```
