@@ -19,12 +19,12 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 
 ### Install dev-tools (admin)
 ```
-choco install -y git.install vscode putty-cac winscp vagrant winpcap docker-desktop
+choco install -y git.install vscode putty-cac winscp docker-desktop
 ```
 
 ### Install admin-tools (admin)
 ```
-choco install -y rufus rsat wireshark nmap ldapadmin
+choco install -y rufus rsat wireshark winpcap nmap ldapadmin
 ```
 
 ### Upgrade debian to buster
@@ -89,8 +89,7 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 sudo apt update
-sudo apt install -y docker-ce
-sudo usermod -aG docker $USER
+sudo apt install -y docker-ce-cli
 ```
 
 ### Disable TLS for docker desktop daemon and configure docker-cli access to docker VM
