@@ -19,7 +19,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 
 ### Install dev-tools (admin)
 ```
-choco install -y git.install vscode putty-cac winscp docker-desktop
+choco install -y git.install vscode putty-cac winscp docker-desktop burp-suite-free-edition ghidra
 ```
 
 ### Install admin-tools (admin)
