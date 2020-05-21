@@ -25,7 +25,7 @@ choco install -y burp-suite-free-edition --version=2020.2.1
 
 ### Install admin-tools (admin)
 ```
-choco install -y rufus rsat wireshark winpcap nmap ldapadmin
+choco install -y rufus rsat wireshark winpcap ldapadmin
 ```
 
 ### Upgrade debian to buster
